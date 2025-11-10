@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client CRUD</title>
+  <link rel="stylesheet" href="../../src/css/main.css">
+</head>
+<body>
+  <header>Client Management</header>
+  <nav>
+    <a href="../../index.html">Home</a>
+  </nav>
+  <div class="container">
+    <h2>Client CRUD</h2>
+    <form class="form-crud">
+      <label for="id">ID</label>
+      <input type="number" id="id" name="id">
+      <label for="person_id">Person ID</label>
+      <input type="number" id="person_id" name="person_id">
+      <label for="client_code">Client Code</label>
+      <input type="text" id="client_code" name="client_code">
+      <label for="registration_date">Registration Date</label>
+      <input type="date" id="registration_date" name="registration_date">
+      <button type="submit">Create</button>
+      <button type="button">Update</button>
+      <button type="button">Delete</button>
+    </form>
+    <table class="crud-table">
+      <thead>
+        <tr>
+          <th>ID</th><th>Person ID</th><th>Client Code</th><th>Registration Date</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>1</td><td>CL001</td><td>2025-10-29</td>
+          <td class="crud-actions"><button>Edit</button><button>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>&copy; 2025 Shopping Cart System</footer>
+</body>
+</html>

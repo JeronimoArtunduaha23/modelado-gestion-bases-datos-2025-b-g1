@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory CRUD</title>
+  <link rel="stylesheet" href="../../src/css/main.css">
+</head>
+<body>
+  <header>Inventory Management</header>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="category.html">Category</a>
+    <a href="product.html">Product</a>
+  </nav>
+  <div class="container">
+    <h2>Inventory CRUD</h2>
+    <form class="form-crud">
+      <label for="id">ID</label>
+      <input type="number" id="id" name="id">
+      <label for="product_id">Product ID</label>
+      <input type="number" id="product_id" name="product_id">
+      <label for="supplier_id">Supplier ID</label>
+      <input type="number" id="supplier_id" name="supplier_id">
+      <label for="current_stock">Current Stock</label>
+      <input type="number" id="current_stock" name="current_stock">
+      <label for="last_update">Last Update</label>
+      <input type="date" id="last_update" name="last_update">
+      <button type="submit">Create</button>
+      <button type="button">Update</button>
+      <button type="button">Delete</button>
+    </form>
+    <table class="crud-table">
+      <thead>
+        <tr>
+          <th>ID</th><th>Product ID</th><th>Supplier ID</th><th>Current Stock</th><th>Last Update</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>1</td><td>1</td><td>50</td><td>2025-10-29</td>
+          <td class="crud-actions"><button>Edit</button><button>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>&copy; 2025 Shopping Cart System</footer>
+</body>
+</html>

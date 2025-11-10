@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Category CRUD</title>
+  <link rel="stylesheet" href="../../src/css/main.css">
+</head>
+<body>
+  <header>Category Management</header>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="product.html">Product</a>
+    <a href="inventory.html">Inventory</a>
+  </nav>
+  <div class="container">
+    <h2>Category CRUD</h2>
+    <form class="form-crud">
+      <label for="id">ID</label>
+      <input type="number" id="id" name="id">
+      <label for="category_name">Category Name</label>
+      <input type="text" id="category_name" name="category_name">
+      <label for="description">Description</label>
+      <input type="text" id="description" name="description">
+      <button type="submit">Create</button>
+      <button type="button">Update</button>
+      <button type="button">Delete</button>
+    </form>
+    <table class="crud-table">
+      <thead>
+        <tr>
+          <th>ID</th><th>Category Name</th><th>Description</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>Electronics</td><td>Devices and gadgets</td>
+          <td class="crud-actions"><button>Edit</button><button>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>&copy; 2025 Shopping Cart System</footer>
+</body>
+</html>

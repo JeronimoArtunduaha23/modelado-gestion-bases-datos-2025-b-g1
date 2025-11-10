@@ -1,0 +1,74 @@
+{
+  "_comentario_general": "Modelo NoSQL para RedSocial+ — diseñado por Jerónimo Artunduaga y José Casanova. Incluye colecciones principales, datos embebidos y referencias.",
+
+  "colecciones": {
+    "usuarios": {
+      "descripcion": "Almacena información de los usuarios registrados en la red social.",
+      "estructura": {
+        "_id": "ObjectId",
+        "nombre_usuario": "string",
+        "nombre_completo": "string",
+        "email": "string",
+        "fecha_registro": "ISODate",
+        "biografia": "string",
+        "seguidores": ["ObjectId (referencia a otros usuarios)"],
+        "siguiendo": ["ObjectId (referencia a otros usuarios)"]
+      },
+      "_justificacion": "Los usuarios se modelan de forma independiente para permitir reutilización y consultas frecuentes (seguidores, publicaciones, reacciones). Las relaciones se representan mediante referencias para evitar duplicidad de información."
+    },
+
+    "publicaciones": {
+      "descripcion": "Contiene las publicaciones creadas por los usuarios.",
+      "estructura": {
+        "_id": "ObjectId",
+        "usuario_id": "ObjectId (referencia a usuarios)",
+        "fecha_publicacion": "ISODate",
+        "contenido_texto": "string",
+        "imagen_url": "string opcional",
+        "etiquetas": ["string"],
+        "comentarios": [
+          {
+            "_id": "ObjectId",
+            "usuario_id": "ObjectId (referencia a usuarios)",
+            "fecha_comentario": "ISODate",
+            "texto": "string"
+          }
+        ],
+        "reacciones": [
+          {
+            "usuario_id": "ObjectId (referencia a usuarios)",
+            "tipo": "string (like, love, wow, etc.)"
+          }
+        ]
+      },
+      "_justificacion": "Los comentarios y reacciones se almacenan embebidos dentro de la publicación para facilitar el acceso directo y mejorar el rendimiento de lectura, dado que suelen consultarse junto con la publicación principal."
+    },
+
+    "comentarios": {
+      "descripcion": "Colección alternativa si se requiere escalar los comentarios a gran volumen.",
+      "estructura": {
+        "_id": "ObjectId",
+        "publicacion_id": "ObjectId (referencia a publicaciones)",
+        "usuario_id": "ObjectId (referencia a usuarios)",
+        "fecha": "ISODate",
+        "texto": "string"
+      },
+      "_justificacion": "Se puede separar en una colección independiente si el número de comentarios por publicación se vuelve demasiado grande, optimizando el rendimiento de escritura y consultas específicas."
+    },
+
+    "reacciones": {
+      "descripcion": "Registra las reacciones de los usuarios a publicaciones o comentarios.",
+      "estructura": {
+        "_id": "ObjectId",
+        "usuario_id": "ObjectId (referencia a usuarios)",
+        "tipo": "string (like, love, sad, etc.)",
+        "fecha": "ISODate",
+        "publicacion_id": "ObjectId (referencia opcional)",
+        "comentario_id": "ObjectId (referencia opcional)"
+      },
+      "_justificacion": "Si se necesita un seguimiento global de reacciones o estadísticas por tipo, esta colección separada facilita la agregación y conteo masivo."
+    }
+  },
+
+  "_resumen_modelado": "Se decidió combinar datos embebidos (comentarios y reacciones en publicaciones) con referencias (usuarios, relaciones) para lograr un balance entre rendimiento de lectura y flexibilidad de escalabilidad. Este modelo es ideal para redes sociales donde las publicaciones se consultan con frecuencia, pero los usuarios mantienen relaciones cruzadas entre sí."
+}

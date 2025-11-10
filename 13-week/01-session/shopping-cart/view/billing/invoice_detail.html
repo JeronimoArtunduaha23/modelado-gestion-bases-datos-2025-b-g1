@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Detail CRUD</title>
+  <link rel="stylesheet" href="../../src/css/main.css">
+</head>
+<body>
+  <header>Invoice Detail Management</header>
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="invoice.html">Invoice</a>
+    <a href="branch.html">Branch</a>
+  </nav>
+  <div class="container">
+    <h2>Invoice Detail CRUD</h2>
+    <form class="form-crud">
+      <label for="id">ID</label>
+      <input type="number" id="id" name="id">
+      <label for="invoice_id">Invoice ID</label>
+      <input type="number" id="invoice_id" name="invoice_id">
+      <label for="product_id">Product ID</label>
+      <input type="number" id="product_id" name="product_id">
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity">
+      <label for="unit_price">Unit Price</label>
+      <input type="number" step="0.01" id="unit_price" name="unit_price">
+      <label for="subtotal">Subtotal</label>
+      <input type="number" step="0.01" id="subtotal" name="subtotal">
+      <button type="submit">Create</button>
+      <button type="button">Update</button>
+      <button type="button">Delete</button>
+    </form>
+    <table class="crud-table">
+      <thead>
+        <tr>
+          <th>ID</th><th>Invoice ID</th><th>Product ID</th><th>Quantity</th><th>Unit Price</th><th>Subtotal</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>1</td><td>1</td><td>2</td><td>750.00</td><td>1500.00</td>
+          <td class="crud-actions"><button>Edit</button><button>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>&copy; 2025 Shopping Cart System</footer>
+</body>
+</html>
